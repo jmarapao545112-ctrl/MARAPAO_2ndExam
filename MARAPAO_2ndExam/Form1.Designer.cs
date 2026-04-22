@@ -66,59 +66,67 @@
             panel1.Controls.Add(txtTitle);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(14, 16);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(405, 119);
+            panel1.Size = new Size(463, 159);
             panel1.TabIndex = 0;
             // 
             // btnAddTask
             // 
-            btnAddTask.Location = new Point(129, 80);
+            btnAddTask.BackColor = Color.PowderBlue;
+            btnAddTask.Location = new Point(147, 107);
+            btnAddTask.Margin = new Padding(3, 4, 3, 4);
             btnAddTask.Name = "btnAddTask";
-            btnAddTask.Size = new Size(136, 23);
+            btnAddTask.Size = new Size(155, 31);
             btnAddTask.TabIndex = 5;
             btnAddTask.Text = "+ Add Task";
-            btnAddTask.UseVisualStyleBackColor = true;
+            btnAddTask.UseVisualStyleBackColor = false;
             btnAddTask.Click += btnAddTask_Click_1;
             // 
             // txtPriority
             // 
-            txtPriority.Location = new Point(211, 51);
+            txtPriority.Location = new Point(241, 68);
+            txtPriority.Margin = new Padding(3, 4, 3, 4);
             txtPriority.Name = "txtPriority";
-            txtPriority.Size = new Size(173, 23);
+            txtPriority.Size = new Size(197, 27);
             txtPriority.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(211, 33);
+            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(241, 44);
             label3.Name = "label3";
-            label3.Size = new Size(73, 15);
+            label3.Size = new Size(94, 20);
             label3.TabIndex = 3;
             label3.Text = "Priority (1-5)";
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(9, 51);
+            txtTitle.Location = new Point(10, 68);
+            txtTitle.Margin = new Padding(3, 4, 3, 4);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(173, 23);
+            txtTitle.Size = new Size(197, 27);
             txtTitle.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(9, 33);
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(10, 44);
             label2.Name = "label2";
-            label2.Size = new Size(54, 15);
+            label2.Size = new Size(71, 20);
             label2.TabIndex = 1;
             label2.Text = "Task Title";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(9, 7);
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(10, 9);
             label1.Name = "label1";
-            label1.Size = new Size(81, 15);
+            label1.Size = new Size(125, 23);
             label1.TabIndex = 0;
             label1.Text = "Add New Task";
             // 
@@ -130,60 +138,70 @@
             panel2.Controls.Add(btnAddSubtask);
             panel2.Controls.Add(txtSubtaskTitle);
             panel2.Controls.Add(label5);
-            panel2.Location = new Point(12, 137);
+            panel2.Location = new Point(14, 183);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(405, 244);
+            panel2.Size = new Size(463, 325);
             panel2.TabIndex = 1;
             // 
             // lblCountDisplay
             // 
+            lblCountDisplay.BackColor = Color.LightCyan;
             lblCountDisplay.Enabled = false;
-            lblCountDisplay.Location = new Point(333, 203);
+            lblCountDisplay.Location = new Point(381, 271);
+            lblCountDisplay.Margin = new Padding(3, 4, 3, 4);
             lblCountDisplay.Name = "lblCountDisplay";
-            lblCountDisplay.Size = new Size(51, 23);
+            lblCountDisplay.Size = new Size(58, 27);
             lblCountDisplay.TabIndex = 10;
             // 
             // btnCountSubtask
             // 
-            btnCountSubtask.Location = new Point(21, 202);
+            btnCountSubtask.BackColor = Color.PowderBlue;
+            btnCountSubtask.Location = new Point(24, 269);
+            btnCountSubtask.Margin = new Padding(3, 4, 3, 4);
             btnCountSubtask.Name = "btnCountSubtask";
-            btnCountSubtask.Size = new Size(136, 23);
+            btnCountSubtask.Size = new Size(155, 31);
             btnCountSubtask.TabIndex = 9;
             btnCountSubtask.Text = "Count Subtask";
-            btnCountSubtask.UseVisualStyleBackColor = true;
+            btnCountSubtask.UseVisualStyleBackColor = false;
             btnCountSubtask.Click += btnCountSubtask_Click_1;
             // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(21, 87);
+            listBox1.Location = new Point(24, 116);
+            listBox1.Margin = new Padding(3, 4, 3, 4);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(363, 109);
+            listBox1.Size = new Size(414, 144);
             listBox1.TabIndex = 8;
             // 
             // btnAddSubtask
             // 
-            btnAddSubtask.Location = new Point(119, 58);
+            btnAddSubtask.BackColor = Color.PowderBlue;
+            btnAddSubtask.Location = new Point(136, 77);
+            btnAddSubtask.Margin = new Padding(3, 4, 3, 4);
             btnAddSubtask.Name = "btnAddSubtask";
-            btnAddSubtask.Size = new Size(136, 23);
+            btnAddSubtask.Size = new Size(155, 31);
             btnAddSubtask.TabIndex = 6;
             btnAddSubtask.Text = "+ Add Subtask";
-            btnAddSubtask.UseVisualStyleBackColor = true;
+            btnAddSubtask.UseVisualStyleBackColor = false;
             btnAddSubtask.Click += btnAddSubtask_Click;
             // 
             // txtSubtaskTitle
             // 
-            txtSubtaskTitle.Location = new Point(10, 29);
+            txtSubtaskTitle.Location = new Point(11, 39);
+            txtSubtaskTitle.Margin = new Padding(3, 4, 3, 4);
             txtSubtaskTitle.Name = "txtSubtaskTitle";
-            txtSubtaskTitle.Size = new Size(374, 23);
+            txtSubtaskTitle.Size = new Size(427, 27);
             txtSubtaskTitle.TabIndex = 6;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(10, 11);
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(11, 15);
             label5.Name = "label5";
-            label5.Size = new Size(53, 15);
+            label5.Size = new Size(68, 20);
             label5.TabIndex = 7;
             label5.Text = "Subtasks";
             // 
@@ -193,76 +211,91 @@
             panel3.Controls.Add(dgvTasks);
             panel3.Controls.Add(btnSearch);
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(423, 12);
+            panel3.Location = new Point(483, 16);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(349, 369);
+            panel3.Size = new Size(399, 492);
             panel3.TabIndex = 2;
             // 
             // btnRemove
             // 
-            btnRemove.Location = new Point(178, 304);
+            btnRemove.BackColor = Color.PowderBlue;
+            btnRemove.Location = new Point(203, 434);
+            btnRemove.Margin = new Padding(3, 4, 3, 4);
             btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(150, 23);
+            btnRemove.Size = new Size(171, 31);
             btnRemove.TabIndex = 10;
             btnRemove.Text = "Remove Task";
-            btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.UseVisualStyleBackColor = false;
             btnRemove.Click += btnRemove_Click_1;
             // 
             // dgvTasks
             // 
             dgvTasks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTasks.Columns.AddRange(new DataGridViewColumn[] { Id, Title, PriorityLevel });
-            dgvTasks.Location = new Point(25, 25);
+            dgvTasks.Location = new Point(29, 53);
+            dgvTasks.Margin = new Padding(3, 4, 3, 4);
             dgvTasks.Name = "dgvTasks";
             dgvTasks.RowHeadersVisible = false;
+            dgvTasks.RowHeadersWidth = 51;
             dgvTasks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvTasks.Size = new Size(303, 273);
+            dgvTasks.Size = new Size(346, 364);
             dgvTasks.TabIndex = 7;
+            dgvTasks.SelectionChanged += dgvTasks_SelectionChanged;
             // 
             // Id
             // 
             Id.HeaderText = "ID";
+            Id.MinimumWidth = 6;
             Id.Name = "Id";
             Id.Width = 50;
             // 
             // Title
             // 
             Title.HeaderText = "Title";
+            Title.MinimumWidth = 6;
             Title.Name = "Title";
             Title.Width = 150;
             // 
             // PriorityLevel
             // 
             PriorityLevel.HeaderText = "Priority Level";
+            PriorityLevel.MinimumWidth = 6;
             PriorityLevel.Name = "PriorityLevel";
+            PriorityLevel.Width = 125;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(25, 304);
+            btnSearch.BackColor = Color.PowderBlue;
+            btnSearch.Location = new Point(29, 434);
+            btnSearch.Margin = new Padding(3, 4, 3, 4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(147, 23);
+            btnSearch.Size = new Size(168, 31);
             btnSearch.TabIndex = 9;
             btnSearch.Text = "Search Task by ID";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click_1;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(3, 7);
+            label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(3, 9);
             label4.Name = "label4";
-            label4.Size = new Size(67, 15);
+            label4.Size = new Size(101, 23);
             label4.TabIndex = 6;
             label4.Text = "Task Queue";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 411);
+            BackColor = Color.RosyBrown;
+            ClientSize = new Size(896, 548);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "Form1";
             Text = "Form1";

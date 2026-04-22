@@ -82,12 +82,24 @@ namespace MARAPAO_2ndExam
         // Action: "Remove Task" Button
         private void btnRemove_Click_1(object sender, EventArgs e)
         {
-            if (taskQueue.Count > 0)
+
+            // 1. Find out which task is currently highlighted
+            var selectedTask = GetSelectedTask();
+
+            if (selectedTask != null)
             {
-                taskQueue.Dequeue(); // Removes the oldest task (FIFO)
+                // 2. Keep the Queue requirement, but filter out the task we want to delete
+                var remainingTasks = taskQueue.Where(t => t.Id != selectedTask.Id);
+                taskQueue = new Queue<AbstractTask>(remainingTasks);
+
+                // 3. Refresh the UI
                 UpdateTable();
                 listBox1.Items.Clear();
                 lblCountDisplay.Text = "0";
+            }
+            else
+            {
+                MessageBox.Show("Please select a task from the list to remove.");
             }
         }
 
@@ -108,6 +120,26 @@ namespace MARAPAO_2ndExam
                 return (AbstractTask)dgvTasks.SelectedRows[0].Tag;
             }
             return null;
+        }
+
+        // Action: Update Subtask List when clicking different rows
+        private void dgvTasks_SelectionChanged(object sender, EventArgs e)
+        {
+            // 1. Clear the old subtasks from the screen
+            listBox1.Items.Clear();
+            lblCountDisplay.Text = "0"; // Reset the count display
+
+            // 2. Get the task that was just clicked
+            var selectedTask = GetSelectedTask();
+
+            // 3. If a task is selected, load only its subtasks into the ListBox
+            if (selectedTask != null)
+            {
+                foreach (var subtask in selectedTask.SubTasks)
+                {
+                    listBox1.Items.Add(subtask.Title);
+                }
+            }
         }
     }
 }
