@@ -33,7 +33,7 @@ namespace MARAPAO_2ndExam
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message); // Shows "Error: Invalid Priority" if outside 1-5
+                MessageBox.Show("Priority must be 1–5"); 
             }
         }
 
@@ -60,14 +60,13 @@ namespace MARAPAO_2ndExam
             if (selectedTask != null)
             {
                 int total = TaskUtility.countAllSubTasks(selectedTask);
-                lblCountDisplay.Text = total.ToString(); // Shows recursive result
+                lblCountDisplay.Text = total.ToString(); 
             }
         }
 
         // Action: "Search Task by ID" Button
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
-            // Simple input dialog to get ID
             string input = Microsoft.VisualBasic.Interaction.InputBox("Enter Task ID to find:", "Linear Search");
             if (int.TryParse(input, out int id))
             {
@@ -83,23 +82,23 @@ namespace MARAPAO_2ndExam
         private void btnRemove_Click_1(object sender, EventArgs e)
         {
 
-            // 1. Find out which task is currently highlighted
-            var selectedTask = GetSelectedTask();
-
-            if (selectedTask != null)
+            if (taskQueue.Count > 0)
             {
-                // 2. Keep the Queue requirement, but filter out the task we want to delete
-                var remainingTasks = taskQueue.Where(t => t.Id != selectedTask.Id);
+                int highestPriority = taskQueue.Max(t => t.Priority);
+
+                var taskToRemove = taskQueue.First(t => t.Priority == highestPriority);
+                var remainingTasks = taskQueue.Where(t => t != taskToRemove);
                 taskQueue = new Queue<AbstractTask>(remainingTasks);
 
-                // 3. Refresh the UI
                 UpdateTable();
                 listBox1.Items.Clear();
                 lblCountDisplay.Text = "0";
+
+                MessageBox.Show($"Removed Task: {taskToRemove.Title} (Priority: {taskToRemove.Priority})");
             }
             else
             {
-                MessageBox.Show("Please select a task from the list to remove.");
+                MessageBox.Show("The queue is empty.");
             }
         }
 
@@ -109,7 +108,7 @@ namespace MARAPAO_2ndExam
             foreach (var t in taskQueue)
             {
                 int rowIndex = dgvTasks.Rows.Add(t.Id, t.Title, t.Priority);
-                dgvTasks.Rows[rowIndex].Tag = t; // Store the object in the row tag
+                dgvTasks.Rows[rowIndex].Tag = t; 
             }
         }
 
@@ -125,14 +124,11 @@ namespace MARAPAO_2ndExam
         // Action: Update Subtask List when clicking different rows
         private void dgvTasks_SelectionChanged(object sender, EventArgs e)
         {
-            // 1. Clear the old subtasks from the screen
             listBox1.Items.Clear();
-            lblCountDisplay.Text = "0"; // Reset the count display
+            lblCountDisplay.Text = "0"; 
 
-            // 2. Get the task that was just clicked
             var selectedTask = GetSelectedTask();
 
-            // 3. If a task is selected, load only its subtasks into the ListBox
             if (selectedTask != null)
             {
                 foreach (var subtask in selectedTask.SubTasks)
