@@ -7,7 +7,6 @@ namespace MARAPAO_2ndExam
 {
     public partial class Form1 : Form
     {
-        // SECTION 1.2: Collection Choice (Queue for exact chronological order)
         private Queue<AbstractTask> taskQueue = new Queue<AbstractTask>();
         private int idCounter = 1;
 
@@ -16,7 +15,6 @@ namespace MARAPAO_2ndExam
             InitializeComponent();
         }
 
-        // Action: "+ Add Task" Button
         private void btnAddTask_Click_1(object sender, EventArgs e)
         {
             try
@@ -24,20 +22,28 @@ namespace MARAPAO_2ndExam
                 string title = txtTitle.Text;
                 int priority = int.Parse(txtPriority.Text);
 
+                if (priority < 1 || priority > 5)
+                {
+                    throw new Exception("Error: Invalid Priority");
+                }
+
                 var newTask = new ProjectTask(idCounter++, title, priority);
-                taskQueue.Enqueue(newTask); // Add to Queue (FIFO)
+                taskQueue.Enqueue(newTask); 
                 UpdateTable();
 
                 txtTitle.Clear();
                 txtPriority.Clear();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Priority must be 1–5"); 
+                MessageBox.Show("Error: Invalid Priority");
+
+                txtTitle.Clear();
+                txtPriority.Clear();
+                txtTitle.Focus();
             }
         }
 
-        // Action: "+ Add Subtask" Button
         private void btnAddSubtask_Click(object sender, EventArgs e)
         {
             var parentTask = GetSelectedTask();
@@ -53,7 +59,6 @@ namespace MARAPAO_2ndExam
             }
         }
 
-        // Action: "Count Subtask" Button
         private void btnCountSubtask_Click_1(object sender, EventArgs e)
         {
             var selectedTask = GetSelectedTask();
@@ -64,7 +69,6 @@ namespace MARAPAO_2ndExam
             }
         }
 
-        // Action: "Search Task by ID" Button
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
             string input = Microsoft.VisualBasic.Interaction.InputBox("Enter Task ID to find:", "Linear Search");
@@ -78,7 +82,6 @@ namespace MARAPAO_2ndExam
             }
         }
 
-        // Action: "Remove Task" Button
         private void btnRemove_Click_1(object sender, EventArgs e)
         {
 
@@ -121,7 +124,6 @@ namespace MARAPAO_2ndExam
             return null;
         }
 
-        // Action: Update Subtask List when clicking different rows
         private void dgvTasks_SelectionChanged(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
